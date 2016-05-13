@@ -2,7 +2,6 @@
 # coding: UTF-8
 import requests
 import sys
-import json
 argv = sys.argv[1:]
 print len(argv)
 appno = argv[0]
@@ -22,7 +21,7 @@ data={
 	"icon":icon,
 	"apikey":apikey
 }
-r=requests.post("https://api.push7.jp/api/v1/"+appno+"/send",data=json.dumps(data)).json()
+r=requests.post("https://api.push7.jp/api/v1/"+appno+"/send",json=data).json()
 if(r.get("error")):
 	print r["error"]
 	exit(1)
