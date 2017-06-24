@@ -1,9 +1,9 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 # coding: UTF-8
 import requests
 import sys
 argv = sys.argv[1:]
-print len(argv)
+print (len(argv))
 appno = argv[0]
 apikey = argv[1]
 title = argv[2]
@@ -23,5 +23,5 @@ data={
 }
 r=requests.post("https://api.push7.jp/api/v1/"+appno+"/send",json=data).json()
 if(r.get("error")):
-	print r["error"]
+	print (r["error"])
 	exit(1)
